@@ -1,139 +1,163 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Site Maintenance</title>
+    <title>Trang web đã chuyển địa chỉ</title>
     <style>
-        body {
+        * {
             margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-family: Arial, sans-serif;
-            /* Mặc định cho desktop */
-            background: url('bgng.jpg') no-repeat center center fixed;
-            background-size: cover;
-            position: relative;
-            color: #fff;
-            text-align: center;
-        }
-
-        /* Media query cho thiết bị di động */
-        @media screen and (orientation: portrait) {
-            body {
-                background: url('bgd.jpeg') no-repeat center center fixed;
-                background-size: cover;
-            }
-        }
-
-        /* Giữ nguyên các CSS khác */
-        body::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(3px);
-            z-index: 1;
-        }
-        
-        .maintenance-container {
-            position: relative;
-            z-index: 2; /* Đặt container lên trên lớp overlay */
-            padding: 2rem;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-        p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-        }
-        .maintenance-gif {
-            max-width: 200px;
-            margin: 2rem 0;
-        }
-        .contact-info, .donate-info {
-            margin-top: 2rem;
-            padding: 1rem;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 10px;
-        }
-        .social-links a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 10px;
-            font-size: 1.1rem;
-        }
-        .social-links a:hover {
-            text-decoration: underline;
-        }
-        .donate-button {
-            display: inline-block;
-            padding: 10px 20px;
-            background: #ffd700;
             color: #333;
-            text-decoration: none;
-            border-radius: 5px;
+        }
+
+        .container {
+            background: white;
+            padding: 50px 40px;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+        }
+
+        .icon {
+            font-size: 80px;
+            margin-bottom: 20px;
+            color: #667eea;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 28px;
+            font-weight: 600;
+        }
+
+        .message {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .new-url {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #667eea;
+            font-family: monospace;
+            color: #667eea;
             font-weight: bold;
-            transition: transform 0.2s;
         }
-        .donate-button:hover {
-            transform: scale(1.05);
+
+        .redirect-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            margin: 10px;
         }
-        .qr-container {
-            margin: 1rem 0;
+
+        .redirect-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
         }
-        .qr-code {
-            max-width: 200px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+        .countdown {
+            margin-top: 20px;
+            color: #888;
+            font-size: 14px;
         }
-        .qr-caption {
-            font-size: 1rem;
-            margin-top: 0.5rem;
-            color: #fff;
+
+        .footer {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            color: #999;
+            font-size: 12px;
         }
     </style>
 </head>
 <body>
-    <div class="maintenance-container">
-        <h1>🛠️ Chào cậu, có thể cậu đã biết:</h1>
-        <p>Trang web này đã không còn truy cập được vài ngày gần đây? Tớ đã nhận được một vài báo cáo về điều đó rồi.<br>Vấn đề gặp phải ở đây là tớ không có đủ kinh phí duy trì nó và tạm thời cậu sẽ thấy trang web này thay thế cho tới khi tớ tìm được giải pháp. Tiện thể thì tớ đang làm một phiên bản mới siêu cấp vjp pro max hơn (có thể chọn mức rank, tag skin,... có thể là bất cứ thứ gì lựa chọn được, có thể là tạo khung rank từ ảnh của cậu luôn!!!</p>
-        <img src="maintenance.gif" alt="Maintenance in Progress" class="maintenance-gif">
-        <p>Thời gian hoạt động trở lại: chưa biết.</p>
-
-        <div class="contact-info">
-            <h2>📞 Cậu có thắc mắc gì đó?</h2>
-            <p>Hãy liên hệ với tớ qua:</p>
-            <div class="social-links">
-                <a href="mailto:yukikiriha@gmail.com">Email</a>
-                <a href="https://www.facebook.com/kiriha.yukii" target="_blank">Facebook</a>
-                <a href="https://www.tiktok.com/@congchuayuuki" target="_blank">Tiktok</a>
-            </div>
+    <div class="container">
+        <div class="icon">🔄</div>
+        <h1>Trang web đã chuyển địa chỉ</h1>
+        <p class="message">
+            Trang web đã hoạt động trở lại và tớ đã chuyển trang web này đến một địa chỉ mới để phục vụ cậu tốt hơn.
+            Vui lòng cập nhật bookmark và truy cập địa chỉ mới bên dưới.
+        </p>
+        
+        <div class="new-url">
+            <strong>Địa chỉ mới:</strong><br>
+            https://aovv.site
         </div>
 
-        <div class="donate-info">
-            <h2>💝 Cậu muốn hỗ trợ tớ?</h2>
-            <p>Giúp tớ duy trì và cải thiện trang web nhé!</p>
-            <div class="qr-container">
-                <img src="qr.jpg" alt="Donation QR Code" class="qr-code">
-                <p class="qr-caption">Scan QR code to donate</p>
-            </div>
-            <p style="font-size: 0.9rem; margin-top: 10px;">
-                STK: 2011 6888 8888<br>
-                TECHCOMBANK
-            </p>
+        <a href="https://aovv.site" class="redirect-btn" id="redirectBtn">
+            🚀 Chuyển đến trang mới
+        </a>
+
+        <div class="countdown" id="countdown">
+            Tự động chuyển hướng sau <span id="timer">10</span> giây...
+        </div>
+
+        <div class="footer">
+            Nếu không tự động chuyển hướng, vui lòng nhấp vào nút bên trên.
         </div>
     </div>
+
+    <script>
+        // Thay đổi URL đích tại đây
+        const NEW_URL = 'https://aovv.site';
+        
+        // Đếm ngược tự động chuyển hướng
+        let timeLeft = 10;
+        const timerElement = document.getElementById('timer');
+        
+        const countdown = setInterval(() => {
+            timeLeft--;
+            timerElement.textContent = timeLeft;
+            
+            if (timeLeft <= 0) {
+                clearInterval(countdown);
+                // Chuyển hướng tự động
+                window.location.href = NEW_URL;
+            }
+        }, 1000);
+
+        // Xử lý sự kiện click nút chuyển hướng
+        document.getElementById('redirectBtn').addEventListener('click', function(e) {
+            e.preventDefault();
+            clearInterval(countdown);
+            window.location.href = NEW_URL;
+        });
+
+        // Cập nhật URL trong trang
+        document.querySelector('.new-url').innerHTML = `
+            <strong>Địa chỉ mới:</strong><br>
+            ${NEW_URL}
+        `;
+        
+        // Cập nhật href của nút
+        document.getElementById('redirectBtn').href = NEW_URL;
+    </script>
 </body>
 </html>
